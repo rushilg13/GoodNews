@@ -6,8 +6,11 @@ GoodNews API uses news api and processes them using nlp techniques to alanyse th
 <ui>
   <li> Python </li>
   <li> FastAPI </li>
-  <li> SciKit Learn </li>
+  <li> SciKit Learn - SVM</li>
  </ui>
  
  # Deployed at
- https://goodnewsapi.herokuapp.com/
+ https://goodnewsapi.herokuapp.com/health/in
+ 
+ # See Documentation
+ https://documenter.getpostman.com/view/3479169/Szf7zncp
