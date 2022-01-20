@@ -1,6 +1,6 @@
 # GoodNews
 
-GoodNews API uses news api and processes them using nlp techniques to alanyse the sentiments. The final response is json data with an additional key value pair called sentiment that carries either posititve or negative as the value. 
+GoodNews API uses news api and processes them using nlp techniques to alanyse the sentiments. The final response is json data with an additional key value pair called sentiment that carries posititve as the value. 
 
 # Tech Stack
 <ui>
