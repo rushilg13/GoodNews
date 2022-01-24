@@ -4,9 +4,11 @@ import pickle
 from starlette.responses import Response
 from fastapi.middleware import Middleware
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import Request
 import uvicorn
 import requests
 from fastapi.responses import FileResponse
+import pymongo
 
 # Load Pickle files
 filename = 'nlp_model.pkl'
@@ -18,6 +20,10 @@ middleware = [ Middleware(CORSMiddleware, allow_origins=['*'], allow_credentials
 
 # Set up app
 app = FastAPI(middleware=middleware)
+
+# connect to MongoDB
+myclient = pymongo.MongoClient("mongodb+srv://VIT_Admin:pizza@vitdiaries.tpuku.mongodb.net/GoodNews?retryWrites=true&w=majority")
+mydb = myclient["GoodNews"]
 
 # Routes
 @app.get('/{category}/{location}')
@@ -84,3 +90,12 @@ def predict_news(data:str):
 @app.get("/records")
 def records():
     return FileResponse("a.txt")
+
+# Save Reported News Headlines to MongoDB
+@app.post("/save")
+def save(title: str):
+    mycol = mydb["Reported_Titles"]
+    rec = {"title":title}
+    x = mycol.insert_one(rec)
+    print("Document inserted with id: ", x.inserted_id)
+    return {"Document inserted" : True}
