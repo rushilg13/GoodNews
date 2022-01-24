@@ -10,6 +10,10 @@ import requests
 from fastapi.responses import FileResponse
 import pymongo
 import os
+from dotenv import load_dotenv
+
+# Load .env files
+load_dotenv()
 
 # Load Pickle files
 filename = 'nlp_model.pkl'
