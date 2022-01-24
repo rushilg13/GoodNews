@@ -24,7 +24,7 @@ cv = pickle.load(open('tranform.pkl', 'rb'))
 middleware = [ Middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'])]
 
 # Set up app
-app = FastAPI(middleware=middleware)
+app = FastAPI(middleware=middleware, docs_url=None, redoc_url=None)
 
 # connect to MongoDB
 MONGODB_URI = os.environ.get('MONGODB_URI')
