@@ -9,11 +9,16 @@ import uvicorn
 import requests
 from fastapi.responses import FileResponse
 import pymongo
+from dotenv import load_dotenv
+import os
 
 # Load Pickle files
 filename = 'nlp_model.pkl'
 clf = pickle.load(open(filename, 'rb'))
 cv = pickle.load(open('tranform.pkl', 'rb'))
+
+# Load dotenv file
+load_dotenv()
 
 # Set Middleware
 middleware = [ Middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'])]
@@ -22,7 +27,8 @@ middleware = [ Middleware(CORSMiddleware, allow_origins=['*'], allow_credentials
 app = FastAPI(middleware=middleware)
 
 # connect to MongoDB
-myclient = pymongo.MongoClient("mongodb+srv://VIT_Admin:pizza@vitdiaries.tpuku.mongodb.net/GoodNews?retryWrites=true&w=majority")
+MONGODB_URI = os.environ['MONGODB_URI']
+myclient = pymongo.MongoClient(MONGODB_URI)
 mydb = myclient["GoodNews"]
 
 # Routes
