@@ -28,8 +28,6 @@ app = FastAPI(middleware=middleware)
 
 # connect to MongoDB
 MONGODB_URI = os.environ.get('MONGODB_URI')
-print("==================================================================================")
-print(MONGODB_URI)
 myclient = pymongo.MongoClient(MONGODB_URI)
 mydb = myclient["GoodNews"]
 
