@@ -10,6 +10,7 @@ GoodNews API uses news api and processes them using nlp techniques to alanyse th
  </ui>
  
  # Deployed at
+ https://goodnewsapi.up.railway.app/health/in <br>
  https://goodnewsapi.herokuapp.com/health/in
  
  # See Documentation
