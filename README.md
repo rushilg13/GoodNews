@@ -2,6 +2,9 @@
 
 GoodNews API uses news api and processes them using nlp techniques to alanyse the sentiments. The final response is json data with an additional key value pair called sentiment that carries posititve as the value. 
 
+# Frontend Code
+https://github.com/rushilg13/happy-times
+
 # Tech Stack
 <ui>
   <li> Python </li>
